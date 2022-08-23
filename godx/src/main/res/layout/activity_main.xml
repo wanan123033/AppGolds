@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/sample_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"/>
+    <Button
+        android:id="@+id/btn_opengl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="opengl"/>
+    <Button
+        android:id="@+id/btn_ffmpeg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ffmpeg"/>
+    <Button
+        android:id="@+id/btn_virtual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="插件化测试"/>
+</LinearLayout>

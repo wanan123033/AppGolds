@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.18.1)
+project("appgodx")
+add_subdirectory(ffmpeg)
+add_subdirectory(opencv)
+add_subdirectory(rtmp)

@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "AppGodx"
+include ':godx'
+include ':app'
+include ':annotation'
+include ':annoProcessor'
+include ':ffmpegtest'
+include ':opengltest'
+include ':plugin'

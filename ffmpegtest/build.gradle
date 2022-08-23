@@ -1,0 +1,53 @@
+plugins {
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+if (!isIntegrate){
+    apply plugin: 'com.android.application'
+}else {
+    apply plugin: 'com.android.library'
+}
+android {
+    compileSdk 32
+
+    defaultConfig {
+        if (!isIntegrate) {
+            applicationId "com.example.ffrmpegtest"
+        }
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        multiDexEnabled true
+        javaCompileOptions{
+            annotationProcessorOptions{
+                arguments=[moudleName:project.name,packageName:routerPackageName]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation project(":godx")
+    kapt project(":annoProcessor")
+
+    if (!isIntegrate){
+        implementation project(":app")
+    }
+}
