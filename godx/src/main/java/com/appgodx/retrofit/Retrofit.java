@@ -22,7 +22,7 @@ public class Retrofit {
     private List<Converter.Factory> converterFactories;
     private Map<Class<?>,Object> proxyCache;
     private Map<Method,ServiceMethod<?>> serviceMethodCache;
-    private Retrofit(Build build) {
+    private Retrofit(Builder build) {
         baseUrl = build.baseUrl;
         callFactory = build.callFactory;
         callAdapterFactories = build.callAdapterFactories;
@@ -80,28 +80,28 @@ public class Retrofit {
         return new RetrofitCallAdapterFactory().get(returnType);
     }
 
-    public static class Build{
+    public static class Builder{
         private String baseUrl;
         private Call.Factory callFactory;
         private List<CallAdapter.Factory> callAdapterFactories = new ArrayList<>();
         private List<Converter.Factory> converterFactories = new ArrayList<>();
-        public Build baseUrl(String baseUrl){
+        public Builder baseUrl(String baseUrl){
             this.baseUrl = baseUrl;
             return this;
         }
-        public Build client(OkHttpClient client){
+        public Builder client(OkHttpClient client){
             return callFactory(client);
         }
 
-        public Build callFactory(Call.Factory factory) {
+        public Builder callFactory(Call.Factory factory) {
             this.callFactory = factory;
             return this;
         }
-        public Build addConverterFactory(Converter.Factory factory){
+        public Builder addConverterFactory(Converter.Factory factory){
             this.converterFactories.add(factory);
             return this;
         }
-        public Build addCallAdapterFactory(CallAdapter.Factory factory){
+        public Builder addCallAdapterFactory(CallAdapter.Factory factory){
             this.callAdapterFactories.add(factory);
             return this;
         }
