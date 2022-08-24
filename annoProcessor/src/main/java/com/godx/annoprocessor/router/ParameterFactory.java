@@ -40,7 +40,7 @@ public class ParameterFactory {
 
         //t.setName(t.getIntent().getIntExtra("name",t.getName()))
         String methodContent = "t.set"+ BaseProcessor.cature(anno)+"(t.getIntent().";
-        messager.printMessage(Diagnostic.Kind.NOTE,">>>>>>>>>"+field.asType().toString());
+//        messager.printMessage(Diagnostic.Kind.NOTE,">>>>>>>>>"+field.asType().toString());
         if (field.asType().toString().equalsIgnoreCase("java.lang.Integer")){
             methodContent += "getIntExtra($S,t.get"+BaseProcessor.cature(anno)+"()))";
         }else if (field.asType().toString().equalsIgnoreCase("java.lang.String")){

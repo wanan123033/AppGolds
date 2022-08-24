@@ -15,7 +15,9 @@ interface HttpContracts {
         @IConverter
         val converterF = GsonConverterFactory<Any>(Gson())
     }
+
+    @FormUrlEncoded
     @HTTP(url = "/app/search")
-    fun search(@Field("q")q:String):Observable<SearchBean>
+    fun search(@Field("q")q:String,@Field("m")n:String):Observable<SearchBean>
 
 }
