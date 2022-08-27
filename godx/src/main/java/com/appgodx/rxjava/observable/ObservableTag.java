@@ -1,5 +1,6 @@
 package com.appgodx.rxjava.observable;
 
+import com.appgodx.rxjava.DisponseHelper;
 import com.appgodx.rxjava.Dispose;
 import com.appgodx.rxjava.DisposeImpl;
 import com.appgodx.rxjava.Observable;
@@ -38,12 +39,14 @@ public class ObservableTag extends Observable<String> {
     public void subscribeActual(Observer<? super String> observer) {
         Dispose dispose = new DisposeImpl();
         observer.onSubscribe(dispose);
-        try {
-            method.invoke(exec,data);
-            observer.onNext(name);
-        }catch (Exception e){
-            e.printStackTrace();
-            observer.onError(e);
+        if (DisponseHelper.isDispose(dispose)) {
+            try {
+                method.invoke(exec, data);
+                observer.onNext(name);
+            } catch (Exception e) {
+                e.printStackTrace();
+                observer.onError(e);
+            }
         }
         observer.onComplete();
     }
