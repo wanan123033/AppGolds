@@ -2,7 +2,7 @@ package com.appgodx.glide;
 
 import android.widget.ImageView;
 
-import com.appgodx.glide.target.ImageViewTarget;44
+import com.appgodx.glide.target.ImageViewTarget;
 import com.bumptech.glide.util.Executors;
 
 import java.io.File;
