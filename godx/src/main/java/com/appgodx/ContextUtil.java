@@ -3,7 +3,6 @@ package com.appgodx;
 import android.app.Application;
 import android.content.Context;
 
-
 /**
  * 为应用的所有模块提供Context的支持,不用担心内存泄漏问题,要引用Context统一从这里获取
  */

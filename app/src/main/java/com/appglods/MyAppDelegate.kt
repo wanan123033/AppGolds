@@ -18,7 +18,7 @@ open class MyAppDelegate : AppDelegate {
 
     override fun onCreate() {
 //        ClassLoaderUtil.loadDex(application,"/sdcard/Download/plugin-debug.apk",false)
-        PluginManager.getInstance(application).loadApk("/sdcard/Download/plugin-debug.apk")
+//        PluginManager.getInstance(application).loadApk("/sdcard/Download/plugin-debug.apk")
     }
 
     override fun onLowMemory() {
