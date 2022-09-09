@@ -18,18 +18,16 @@ public class ObservableMap<T,R> extends Observable<R> {
 
     @Override
     public void subscribeActual(Observer<? super R> observer) {
-        MapObserver<T,R> mapObserver = new MapObserver<>(observable,function,observer);
+        MapObserver<T,R> mapObserver = new MapObserver<>(function,observer);
         observable.subscribeActual(mapObserver);
     }
     private static final class MapObserver<T,R> implements Observer<T>, Dispose{
 
-        private final Observable<T> observable;
         private final Function<T, R> function;
         private final Observer<? super R> observer;
         private Dispose dispose;
 
-        public MapObserver(Observable<T> observable, Function<T, R> function, Observer<? super R> observer) {
-            this.observable = observable;
+        public MapObserver(Function<T, R> function, Observer<? super R> observer) {
             this.function = function;
             this.observer = observer;
             dispose = new DisposeImpl();

@@ -1,8 +1,6 @@
 package com.appgodx.rxbus;
 
-import com.appgodx.rxjava.Dispose;
 import com.appgodx.rxjava.Observable;
-import com.appgodx.rxjava.Observer;
 import com.appgodx.rxjava.Schedulers;
 import com.appgodx.rxjava.observable.ObservableTag;
 import com.godx.annotation.bus.Subscribetion;

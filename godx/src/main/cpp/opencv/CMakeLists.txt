@@ -30,5 +30,5 @@ find_library(
 
 target_link_libraries(
         godx-opencv
-
+        opencv
         ${log-lib})

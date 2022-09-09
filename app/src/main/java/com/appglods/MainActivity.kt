@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import appgodx.ffmpeg.FFmpegCmd
+import appgodx.ffmpeg.FFmpegPlayer
 import com.appgodx.glide.Glide
 import com.appgodx.router.Router
 import com.godx.annotation.router.ARouter
@@ -27,8 +29,12 @@ open class MainActivity:AppCompatActivity(), View.OnClickListener {
         findViewById<Button>(com.appgodx.R.id.btn_ffmpeg).setOnClickListener(this)
         findViewById<Button>(com.appgodx.R.id.btn_opengl).setOnClickListener(this)
         findViewById<Button>(com.appgodx.R.id.btn_virtual).setOnClickListener(this)
-        Log.e("TAG","${applicationContext.applicationContext}")
         Glide.with(this)
+
+//        val player = FFmpegPlayer()
+//        player.setDataSource("/sdcard/Download/aaa.mp4")
+//        player.prepare()
+        FFmpegCmd.exec("ffmpeg --audio")
     }
 
     override fun onClick(v: View?) {
