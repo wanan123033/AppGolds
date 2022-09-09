@@ -9,6 +9,10 @@ public class ImageViewTarget implements LifecycleListener {
 
     }
 
+    public ImageViewTarget() {
+
+    }
+
     @Override
     public void onStart() {
 

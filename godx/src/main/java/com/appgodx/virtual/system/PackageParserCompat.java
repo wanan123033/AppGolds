@@ -28,7 +28,7 @@ import java.lang.reflect.Constructor;
 import java.util.Arrays;
 
 /**
- * @author johnsonlee
+ * @author
  */
 public final class PackageParserCompat {
 

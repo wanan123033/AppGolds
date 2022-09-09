@@ -24,6 +24,7 @@
       <module name="AppGodx.app" target="11" />
       <module name="AppGodx.ffmpegtest" target="11" />
       <module name="AppGodx.godx" target="11" />
+      <module name="AppGodx.ijkplayerlibrary" target="11" />
       <module name="AppGodx.opengltest" target="11" />
       <module name="AppGodx.plugin" target="11" />
     </bytecodeTargetLevel>
