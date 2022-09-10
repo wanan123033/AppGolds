@@ -22,12 +22,9 @@ MMKV::MMKV(const char *mmapId, MMKVMode mode):
 }
 
 void MMKV::loadFromFile() {
-
+    m_file->loadFromFile();
+    m_ptr = m_file->getPtr();
+    m_cache = m_file->getCache();
+    m_output = new CodeOutput(m_ptr + Fixed32Size + m_file->getActualSize(),m_file->getSize() - Fixed32Size - m_file->getActualSize());
 }
 
-void MMKV::putInt(const char *key, int value) {
-
-}
-int MMKV::getInt(const char *key) {
-    return 0;
-}

@@ -35,3 +35,23 @@ Java_appgodx_mmkv_MMKV_getInt(JNIEnv *env, jclass clazz, jlong handle, jstring k
     env->ReleaseStringUTFChars(key,cKey);
     return value;
 }
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_appgodx_mmkv_MMKV_getString(JNIEnv *env, jclass clazz, jlong handle, jstring key) {
+    MMKV* mmkv = reinterpret_cast<MMKV *>(handle);
+    const char* cKey = env->GetStringUTFChars(key,0);
+    string str = mmkv->getString(cKey);
+    jstring value = env->NewStringUTF(str.c_str());
+    env->ReleaseStringUTFChars(key,cKey);
+    return value;
+}
+extern "C"
+JNIEXPORT void JNICALL
+Java_appgodx_mmkv_MMKV_putString(JNIEnv *env, jclass clazz, jlong handle, jstring key,
+                                 jstring value) {
+    MMKV* mmkv = reinterpret_cast<MMKV *>(handle);
+    const char* cKey = env->GetStringUTFChars(key,0);
+    const char* cValue = env->GetStringUTFChars(value,0);
+    string str(cValue, strlen(cValue));
+    mmkv->putString(cKey,str);
+}

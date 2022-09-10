@@ -52,6 +52,16 @@ public class MMKV {
     public int getInt(String key){
         return getInt(handle,key);
     }
+    public void putString(String key,String value){
+        putString(handle,key,value);
+    }
+    public String getString(String key){
+        return getString(handle,key);
+    }
+
+    private static native String getString(long handle, String key);
+
+    private static native void putString(long handle, String key, String value);
 
     private static native void jniInitialize(String rootPath);
     private static native long mmkvWithId(String mmapId, int mode);

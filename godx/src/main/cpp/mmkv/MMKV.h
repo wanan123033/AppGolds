@@ -4,13 +4,12 @@
 
 #ifndef APPGODX_MMKV_H
 #define APPGODX_MMKV_H
-#include <unordered_map>
-#include <string>
 #include <jni.h>
 #include "ThreadLock.h"
 #include "MomeryFile.h"
 #include "InterProgressLock.h"
 #include "FileLock.h"
+#include "CodeOutput.h"
 
 using namespace std;
 enum MMKVMode : uint32_t {
@@ -32,10 +31,12 @@ public:
 
     int getInt(const char *key);
 
+    string getString(const char *key);
+
+    void putString(const char *key, string value);
+
 private:
-    static unordered_map<string,MMKV*>* g_instanceDir;
-    static string g_rootDir;
-    static ThreadLock g_instanceLock;
+
 
     string m_mmapId;  //mmap ID
     MMKVMode m_mode;  //mmap 文件模式
@@ -48,9 +49,21 @@ private:
     InterProgressLock m_writeLock;  //文件写锁
     FileLock m_fileLock;  //文件锁
     bool isInterProgress; //是否跨进程
+    int8_t * m_ptr;
+
 
     void loadFromFile();
+
+    unordered_map<string,CodeInput*>* m_cache;
+
+    void appendDataWithKey(const char *key, CodeInput* input);
+
+    CodeOutput *m_output;
+
+    void writeAcutalSize(size_t size);
 };
 
-
+static unordered_map<string,MMKV*>* g_instanceDir;
+static string g_rootDir;
+static ThreadLock g_instanceLock;
 #endif //APPGODX_MMKV_H
